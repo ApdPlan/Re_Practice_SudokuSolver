@@ -114,21 +114,22 @@ def begin(found_one):
                 missing_in_row = Susolv.missing_number_list(row)
                 #1st check to update list for this position (row only)
                 if (len(missing_in_row) == 1):
-                    found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, row_number, column_number, square_number, missing_in_row)
+                    found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, \
+                                                    row_number, column_number, square_number, missing_in_row)
                 else:                   
                     #2nd check to update list for this position (row and column)
                     missing_in_column = Susolv.missing_number_list(list_of_columns[column_number])
                     missing_comparison = missing_in_row.intersection(missing_in_column)
                     if (len(missing_comparison) == 1):
-                        found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, row_number, column_number, square_number, \
-                                                 missing_comparison)
+                        found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, \
+                                                        row_number, column_number, square_number, missing_comparison)
                     else:
                         #last check to update list for this position (row, column, and square)
                         missing_in_square = Susolv.missing_number_list(list_of_squares[square_number])
                         missing_comparison = missing_comparison.intersection(missing_in_square)
                         if (len(missing_comparison) == 1):
-                            found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, row_number, column_number, square_number, \
-                                                     missing_comparison)
+                            found_one = Susolv.update_lists(list_of_rows, list_of_columns, list_of_squares, \
+                                                            row_number, column_number, square_number, missing_comparison)
             column_number += 1
             n += 1
         row_number += 1
